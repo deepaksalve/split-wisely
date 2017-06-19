@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+// change bootstrap variables here, before import directive
+$font-family-sans-serif:  Arial, sans-serif !default;
+$font-size-base:          16px !default;
+
+// "bootstrap-sprockets" must be imported before "bootstrap", "bootstrap/custom" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap/custom";
+@import "bootstrap/theme";
+
+.navbar.navbar-default {
+  margin-bottom: 0;
+}
+
+.flash {
+  .alert {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin-bottom: 0;
+
+    &.visible {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 15px;
+      margin-bottom: 22px;
+    }
+  }
+
+  .notice {
+    margin-top: 11px;
+  }
+}

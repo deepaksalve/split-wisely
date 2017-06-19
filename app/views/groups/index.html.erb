@@ -1,0 +1,27 @@
+<h2 class="text-left">My Groups</h2>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-striped groups-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Total expense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @groups.each.with_index(1) do |group, row| %>
+            <tr>
+              <th scope="row"><%= row %></th>
+              <td><%= link_to(group.title, group_path(id: group.id)) %></td>
+              <td><%= group.description %></td>
+              <td><%= GroupsController::TMP_GROUP_EXPENSES %></td> <!-- Currently using a constant for group expenses -->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

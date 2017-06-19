@@ -1,0 +1,41 @@
+<h2 class="text-left">Group info</h2>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body group-info">
+      <table class="table groups-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th class="group-title" colspan="2"><%= @group.title %></th>
+          </tr>
+          <tr>
+            <th>Expenses</th>
+            <th class="group-expenses" colspan="3"><%= @group.title %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>description</th>
+            <th class="group-description" colspan="3"><%= @group.description %></th>
+          </tr>
+          <% unless @group.users.empty? %>
+            <tr>
+              <th>#</th>
+              <th scope="member-name-label">Member name</th>
+              <th class="member-email-label">Member email</th>
+              <th class="member-amount-owed-label">Amount owed</th>
+            </tr>
+            <% @group.users.each.with_index(1) do |member, row| %>
+              <tr>
+                <td scope="row"><%= row %></td>
+                <td class="member-name"><%= member.get_name %></td>
+                <td class="member-email"><%= member.email %></td>
+                <td class="member-amount-owed"><%= member.email %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h4 class="text-left">Welcome <%= @email %>!</h4>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p class="text-success">You can confirm your account email through the link below:</p>
+      <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+    </div>
+  </div>
+</div>
