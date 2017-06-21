@@ -1,0 +1,27 @@
+<h2 class="text-left">Transactions</h2>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table groups-table">
+        <thead>
+          <tr>
+            <th><strong>Group</strong></th>
+            <th><strong>User</strong></th>
+            <th><strong>Date</strong></th>
+            <th><strong>Amount</strong></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @transactions.each do |transaction| %>
+            <tr>
+              <td class="group-title"><%= transaction.group.title %></td>
+              <td class="user-name"><%= transaction.user.full_name %></td>
+              <td class="date"><%= transaction.date %></td>
+              <td class="amount"><%= transaction.amount %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

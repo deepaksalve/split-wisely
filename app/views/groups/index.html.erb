@@ -17,7 +17,7 @@
               <th scope="row"><%= row %></th>
               <td><%= link_to(group.title, group_path(id: group.id)) %></td>
               <td><%= group.description %></td>
-              <td><%= GroupsController::TMP_GROUP_EXPENSES %></td> <!-- Currently using a constant for group expenses -->
+              <td><%= group.transactions.sum(&:amount) %></td>
             </tr>
           <% end %>
         </tbody>
