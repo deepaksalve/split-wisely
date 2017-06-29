@@ -1,0 +1,7 @@
+%h4.text-left
+  Welcome #{@email}!
+.row
+  .panel.panel-default
+    .panel-body
+      %p.text-success You can confirm your account email through the link below:
+      %p= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token)

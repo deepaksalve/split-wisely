@@ -1,0 +1,34 @@
+.row
+  .pull-left
+    %h2.text-left Group info
+  .pull-right
+    = link_to "Show transactions", transactions_path(id: @group.id), class: "btn btn-default"
+    = link_to "Add transaction", new_transaction_path(id: @group.id), class: "btn btn-default"
+    = link_to "Add member", add_member_path(@group.id), class: "btn btn-default"
+.row
+  .panel.panel-default
+    .panel-body.group-info
+      %table.table.groups-table
+        %thead
+          %tr
+            %th Title
+            %th.group-title{:colspan => "2"}= @group.title
+          %tr
+            %th Expenses
+            %th.group-expenses{:colspan => "3"}= @expenses
+        %tbody
+          %tr
+            %th description
+            %th.group-description{:colspan => "3"}= @group.description
+          - unless @group.users.empty?
+            %tr
+              %th #
+              %th{:scope => "member-name-label"} Member name
+              %th.member-email-label Member email
+              %th.member-amount-owed-label Amount
+            - @group.users.each.with_index(1) do |member, row|
+              %tr
+                %td{:scope => "row"}= row
+                %td.member-name= member.full_name
+                %td.member-email= member.email
+                %td.member-amount= member.group_expenses(@group.id)

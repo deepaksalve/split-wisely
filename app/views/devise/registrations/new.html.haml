@@ -1,0 +1,35 @@
+%h1.text-center Registration
+.row
+  .col-lg-offset-3.col-lg-6.col-md-offset-3.col-md-6.col-sm-offset-2.col-sm-8.col-xs-12
+    .panel.panel-default
+      .panel-body
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .form-group
+            = f.label :first_name
+            %br/
+            = f.text_field :first_name, autofocus: true, placeholder: "First name", class: "form-control"
+          .form-group
+            = f.label :last_name
+            %br/
+            = f.text_field :last_name, placeholder: "Last name", class: "form-control"
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, placeholder: "myemail@example.com", class: "form-control"
+          .form-group
+            = f.label :password
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "off", class: "form-control"
+          .form-group
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "off", class: "form-control"
+          .actions
+            = f.submit "Sign up", class: "btn btn-primary btn-block"
+      .panel-footer
+        %p
+          = link_to("Already Registered? Log In", new_user_session_path)

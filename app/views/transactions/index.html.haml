@@ -1,0 +1,22 @@
+%h2.text-left Transactions
+.row
+  .panel.panel-default
+    .panel-body
+      %table.table.groups-table
+        %thead
+          %tr
+            %th
+              %strong Group
+            %th
+              %strong User
+            %th
+              %strong Date
+            %th
+              %strong Amount
+        %tbody
+          - @transactions.each do |transaction|
+            %tr
+              %td.group-title= transaction.group.title
+              %td.user-name= transaction.user.full_name
+              %td.date= transaction.date
+              %td.amount= transaction.amount

@@ -1,0 +1,18 @@
+%h2.text-left My Groups
+.row
+  .panel.panel-default
+    .panel-body
+      %table.table.table-striped.groups-table
+        %thead
+          %tr
+            %th #
+            %th Title
+            %th Description
+            %th Total expense
+        %tbody
+          - @groups.each.with_index(1) do |group, row|
+            %tr
+              %th{:scope => "row"}= row
+              %td= link_to(group.title, group_path(id: group.id))
+              %td= group.description
+              %td= group.transactions.sum(&:amount)

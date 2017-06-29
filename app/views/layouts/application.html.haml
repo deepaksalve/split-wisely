@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title SplitWisely
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-default
+      %div
+        = render 'layouts/navigation'
+    %div{:class => "container #{controller.controller_name}"}
+      .flash
+        %p{:class => "notice#{' visible' if notice}"}= notice
+        %p{:class => "alert#{' visible' if alert}"}= alert
+      = yield
